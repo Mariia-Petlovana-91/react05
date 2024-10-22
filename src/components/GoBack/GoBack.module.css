@@ -1,0 +1,29 @@
+.btnBack {
+	max-width: 150px;
+	background-color: var(--backgroundSecondaryColor);
+	font-size: 20px;
+	padding: 8px;
+	border: 1px solid var(--accentColor);
+	border-radius: 5px;
+	color: var(--fontColorWhite);
+	transition: box-shadow 0.3s linear;
+	margin-bottom: 32px;
+}
+
+.backLink{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btnBack:focus,
+.btnBack:hover {
+	box-shadow: var(--boxShadow);
+	cursor: pointer;
+}
+
+.backIcon {
+	fill: var(--accentColor);
+	display: inline-block;
+	margin-right: 8px;
+}

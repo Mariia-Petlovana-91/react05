@@ -1,0 +1,37 @@
+.notFoundContainer{
+	background-color: var(--backgroundSecondaryColor);
+	padding: 20px;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.notFoundText{
+	font-size: 24px;
+	text-align: center;
+	color: var(--fontColorWhite);
+	margin-bottom: 32px;
+}
+
+.notFoundTextStrong{
+	color: var(--accentColor);
+}
+
+.notFoundIcon{
+	fill: var(--anotherColor);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		scale: 0.8;
+		transform: rotate(0deg);
+	}
+
+	to {
+		scale: 1.5;
+		transform: rotate(-360deg);
+	}
+}

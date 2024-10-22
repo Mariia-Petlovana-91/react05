@@ -1,20 +1,17 @@
 :root {
-  --fontColorWhite: transparent;
-  --fontColorDark: transparent;
-  --secondaryColor: transparent;
-  --accentColor: transparent;
-  --anotherColor:transparent;
-  --backgroundFirstColor: transparent;
-  --backgroundSecondaryColor: transparent;
+  --fontColorWhite: rgba(255, 255, 255, 0.911);
+  --whiteColor: rgb(255, 255, 255);
+  --fontColorDark: rgb(14, 13, 13);
+  --secondaryColor: rgba(236, 88, 29, 0.87);
+  --accentColor: rgba(241, 152, 19, 0.973);
+  --anotherColor:rgba(214, 169, 21, 0.884);
+  --backgroundFirstColor: rgba(0, 0, 0, 0.863);
+  --backgroundSecondaryColor:rgba(58, 49, 49, 0.651);
   --boxShadow: 0 6px 8px rgba(255, 255, 255, 0.589);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(19, 15, 15, 0.87);
-  background-color: #ffffff49;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
