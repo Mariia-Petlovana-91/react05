@@ -1,0 +1,31 @@
+.img {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	color: var(--accentColor);
+	font-size: 24px;
+	transition: color 0.3s linear;
+}
+
+.icon{
+	display: inline-block;
+	margin-left: 8px;
+	fill: var(--accentColor);
+	transition: fill 0.3s linear;
+}
+
+.link:hover,
+.link:focus{
+	color: var(--secondaryColor);
+}
+
+.link:hover .icon,
+.link:focus .icon{
+	fill: var(--secondaryColor);
+}

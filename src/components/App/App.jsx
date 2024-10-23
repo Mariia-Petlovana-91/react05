@@ -1,5 +1,12 @@
 import css from "../App/App.module.css";
-import { Routes, Route} from "react-router-dom";
+
+
+
+import { Routes, Route } from "react-router-dom";
+import { useState} from 'react';
+
+
+
 import Navigation from "../Navigation/Navigation";
 import Section from "../Section/Section";
 import Loader from "../Loader/Loader";
@@ -10,18 +17,26 @@ import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
+
+
 export default function App() {
+  const [load, setLoad] = useState(false);
 
   return (
     <>
       <Navigation />
       
       <Section>
-        <Loader/>
+        {load && <Loader/>}
+        
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:1" element={<MovieDetailsPage />}>
+          <Route path="/" element={<HomePage
+            setLoad={setLoad}
+          />} />
+          <Route path="/movies" element={<MoviesPage
+            setLoad={setLoad}
+          />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<MovieCast/> } />
             <Route path="reviews" element={<MovieReviews/>}/>
           </Route>
