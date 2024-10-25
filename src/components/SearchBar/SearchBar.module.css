@@ -1,9 +1,5 @@
-.header{
-	padding-bottom: 10px;
-}
-
 .form{
-	max-width: 300px;
+	max-width: 600px;
 }
 
 .form__inputEl{
@@ -13,9 +9,10 @@
 }
 
 .form__input {
+	width: 100%;
 	outline:var(--secondaryColor);
 	background-color: var(--whiteColor);
-      padding: 8px 10px 8px 36px;
+      padding: 8px;
 	border: 1px solid var(--accentColor);
 	border-radius: 5px;
 	transition: box-shadow 0.3s linear;

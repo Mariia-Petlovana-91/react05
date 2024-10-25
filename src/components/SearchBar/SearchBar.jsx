@@ -22,11 +22,10 @@ export default function SearchBar({ onSubmit }) {
 	}
 
 	return (
-	     <header className={css.header}>
-			<form className={css.form}
-				onSubmit={handleSubmit}
-			>
-				<div className={css.form__inputEl}>
+		<form className={css.form}
+			onSubmit={handleSubmit}
+		>
+			<div className={css.form__inputEl}>
 					<input 
                                 className={css.form__input}
                                 name="search"
@@ -41,8 +40,7 @@ export default function SearchBar({ onSubmit }) {
 						size={20}
 					/>
 				      </button>	
-				</div>
-			</form>
-	      </header>
+			</div>
+		</form>
 	);
 }

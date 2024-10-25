@@ -1,8 +1,13 @@
-.container{}
-
 .title{
 	text-align: center;
 	color: var(--fontColorWhite);
+	font-size: 24px;
+}
+
+@media (min-width:1024px) {
+	.title {
+		font-size: 32px;
+	}
 }
 
 

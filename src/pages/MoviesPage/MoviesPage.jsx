@@ -5,13 +5,14 @@ import List from '../../components/List/List';
 
 import { useState, useEffect } from 'react';
 import toast from "react-hot-toast";
-import { Link, Routes, Route, Outlet } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 
 import movieService from '../../utils/api';
 
 export default function MoviesPage({ setLoad }) {
+
   const [searchArray, setSearchArray] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   async function fetch(searchValue) {
     try {
@@ -20,7 +21,6 @@ export default function MoviesPage({ setLoad }) {
 
       if (data.results.length === 0) {
         toast.error('Nothing was found for your request🤷‍♀️.');
-        console.log(data.results.length);
         return;
       }
 
@@ -32,23 +32,24 @@ export default function MoviesPage({ setLoad }) {
     }
   }
 
-  useEffect(() => {
-    if (searchTerm) {
-      fetch(searchTerm);
-    }
-  }, [searchTerm]);
-
   function onSearchSubmit(inputValue) {
-    setSearchTerm(inputValue);
     setSearchArray([]);
+    setSearchParams({ q: inputValue });
+    fetch(inputValue);
   }
+  
+  useEffect(() => {
+    const query = searchParams.get('q');
+    if (query) {
+      fetch(query);
+    }
+  }, [searchParams]);
 
   return (
-    <div>
+    <div className={css.container}>
       <SearchBar onSubmit={onSearchSubmit} />
       <Outlet />
       {searchArray && <List array={searchArray} />}
-      
     </div>
   );
 }

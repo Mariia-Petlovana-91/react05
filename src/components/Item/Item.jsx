@@ -9,15 +9,18 @@ import defaultImage from "../../img/dafaultImg.png";
 export default function Item({ backdrop_path, title, id }) {
 	return (
 		<>
+			<Link to={`/movies/${id}`} className={css.link}>
 			<img 
 				src={backdrop_path ? `https://image.tmdb.org/t/p/w500${backdrop_path}` : defaultImage}
 				alt={title}
 				className={css.img}
-				onError={(e) => { e.target.src = defaultImage;  e.target.className = css.target.className = css.defaultImg;}} // Якщо зображення не завантажується
+				onError={(e) => { e.target.src = defaultImage;  e.target.className = css.target.className = css.defaultImg;}}
 			/>
-			<Link to={`/movies/${id}`} className={css.link}>
-				{title}
-				<GiClick className={css.icon} size={24} />
+				<p className={css.text}>
+				 	{title}
+				    <GiClick className={css.icon} size={24} />
+				</p>
+				
 			</Link>
 		</>
 	)

@@ -38,4 +38,19 @@ async function getSearchQuery(searchValue) {
     }
 }
 
-export default { getTrendingMovies, getSearchQuery };
+async function getElementById(id) {
+
+    try {
+	    const response = await movieInstance.get(`/movie?`, {
+		    params: {
+			movie_id: id,
+                  ...defaultParams
+		  }
+	  });
+        return response.data;
+    } catch (error) {
+       console.error(`Error fetching data: ${error.message}`);;
+    }
+}
+
+export default { getTrendingMovies, getSearchQuery, getElementById };

@@ -1,3 +1,13 @@
+.link {
+	display:block;
+	transition: box-shadow 0.3s linear, transform 0.3s linear;
+	width: 100%;
+	height: 100%;
+	border: 1px solid var(--accentColor);
+	border-radius: 5px;
+	background-color: var(--backgroundSecondaryColor);
+}
+
 .img {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -7,15 +17,13 @@
 	object-fit: cover;
 }
 
-
-
-.link {
-	display: flex;
-	align-items: center;
-	padding-left: 10px;
+.text{
 	color: var(--accentColor);
 	font-size: 20px;
 	transition: color 0.3s linear;
+	display: flex;
+	align-items: center;
+	padding: 0px 8px 20px 8px;
 }
 
 .icon{
@@ -26,11 +34,17 @@
 }
 
 .link:hover,
-.link:focus{
-	color: var(--secondaryColor);
+.link:focus {
+	box-shadow: var(--boxShadow);
+	transform: scale(1.01);
 }
 
 .link:hover .icon,
 .link:focus .icon{
 	fill: var(--secondaryColor);
+}
+
+.link:hover .text,
+.link:focus .text {
+	color: var(--secondaryColor);
 }

@@ -1,8 +1,33 @@
 import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
-import { Link, Routes, Route, Outlet } from "react-router-dom";
+import { Link, useParams, Outlet } from "react-router-dom";
+import { useState, useEffect } from 'react';
+
+import toast from "react-hot-toast";
+
+import movieService  from '../../utils/api';
 import GoBack from '../../components/GoBack/GoBack';
 
 export default function MovieDetailsPage() {
+	
+	const elId = useParams();
+	// const [element, setElement] = useState();
+
+      // async function fetch(id) {
+      //       try {
+            
+      //       const data = await movieService.getElementById(id);
+      //            if (data.results === 0) {
+      //             return;
+      //           }
+	// 		setElement(data.results);
+	// 		console.log(data);
+      //       } catch (error) {
+      //       toast.error(`${error.message}🚨`);
+      //       } finally {
+            
+      //       }
+	// }
+	// fetch(elId)
 	return (
 		<div className={css.detalisContainer}>
 			<GoBack />

@@ -21,7 +21,6 @@ export default function HomePage({setLoad}) {
       return;
     }
       setTrending(data.results);
-      console.log(data.results);
    } catch (error) {
      toast.error(`${error.message}🚨`);
    } finally {

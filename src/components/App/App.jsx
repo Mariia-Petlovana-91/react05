@@ -37,9 +37,10 @@ export default function App() {
           <Route path="/movies" element={<MoviesPage
             setLoad={setLoad}
           />} />
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<MovieCast/> } />
-            <Route path="reviews" element={<MovieReviews/>}/>
+          <Route path="/movies/:movieId" element={<MovieDetailsPage
+          setLoad={setLoad}/>}>
+            <Route path="cast" element={<MovieCast setLoad={setLoad} />} />
+            <Route path="reviews" element={<MovieReviews setLoad={setLoad}/>}/>
           </Route>
   	    	<Route path="*" element={<NotFoundPage />} />
         </Routes>

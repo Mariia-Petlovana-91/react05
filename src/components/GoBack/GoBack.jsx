@@ -2,10 +2,10 @@ import css from '../GoBack/GoBack.module.css';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import {Link} from "react-router-dom";
 
-export default function GoBack() {
+export default function GoBack({onBack}) {
 	return (
 		<div>
-			<button type='button'
+			<button onClick={onBack} type='button'
 				className={css.btnBack}
 			>
 			<Link to="/" className={css.backLink}>
