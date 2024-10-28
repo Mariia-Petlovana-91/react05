@@ -5,8 +5,8 @@
   --secondaryColor: rgba(236, 88, 29, 0.87);
   --accentColor: rgba(241, 152, 19, 0.973);
   --anotherColor:rgba(214, 169, 21, 0.884);
-  --backgroundFirstColor: rgba(0, 0, 0, 0.863);
-  --backgroundSecondaryColor:rgba(58, 49, 49, 0.651);
+  --backgroundFirstColor: rgba(0, 0, 0, 0.877);
+  --backgroundSecondaryColor: rgba(26, 25, 23, 0.938);
   --boxShadow: 0 6px 8px rgba(255, 255, 255, 0.589);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

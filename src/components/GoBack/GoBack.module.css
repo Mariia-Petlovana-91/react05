@@ -7,10 +7,7 @@
 	border-radius: 5px;
 	color: var(--fontColorWhite);
 	transition: box-shadow 0.3s linear;
-	margin-bottom: 32px;
-}
-
-.backLink{
+	margin-bottom: 24px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

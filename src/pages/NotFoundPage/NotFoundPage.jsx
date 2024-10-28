@@ -5,7 +5,7 @@ import GoBack from '../../components/GoBack/GoBack';
 export default function NotFoundPage() {
 	return (
 		<div className={css.notFoundContainer}>
-                  <GoBack/>
+                  <GoBack address={'/'}/>
 			<p className={css.notFoundText}>Error&#8201;
 				<strong><span className={css.notFoundTextStrong}>404</span></strong>
 				&#8201;page not found!

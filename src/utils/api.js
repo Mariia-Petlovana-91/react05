@@ -24,7 +24,6 @@ async function getTrendingMovies() {
 }
 
 async function getSearchQuery(searchValue) {
-
     try {
 	    const response = await movieInstance.get(`/search/movie?`, {
 		    params: {
@@ -39,11 +38,9 @@ async function getSearchQuery(searchValue) {
 }
 
 async function getElementById(id) {
-
     try {
-	    const response = await movieInstance.get(`/movie?`, {
+	    const response = await movieInstance.get(`/movie/${id}`, {
 		    params: {
-			movie_id: id,
                   ...defaultParams
 		  }
 	  });
@@ -53,4 +50,30 @@ async function getElementById(id) {
     }
 }
 
-export default { getTrendingMovies, getSearchQuery, getElementById };
+async function getReviews(id) {
+    try {
+	    const response = await movieInstance.get(`/movie/${id}/reviews`, {
+		    params: {
+                  ...defaultParams
+		  }
+        });
+        return response.data;
+    } catch (error) {
+       console.error(`Error fetching data: ${error.message}`);;
+    }
+}
+
+async function getCast(id) {
+    try {
+	    const response = await movieInstance.get(`/movie/${id}/credits`, {
+		    params: {
+                  ...defaultParams
+		  }
+        });
+        return response.data;
+    } catch (error) {
+       console.error(`Error fetching data: ${error.message}`);;
+    }
+}
+
+export default { getTrendingMovies, getSearchQuery, getElementById, getReviews, getCast };

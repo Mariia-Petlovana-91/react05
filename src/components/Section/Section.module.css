@@ -1,6 +1,7 @@
 .section{
 	background-color: var(--backgroundFirstColor);
 	padding: 16px;
+		min-height: 100vh;
 }
 
 @media (min-width:768px) {

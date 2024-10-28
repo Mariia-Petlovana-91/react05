@@ -1,7 +1,8 @@
 import css from '../HomePage/HomePage.module.css'; 
+import { useLoader } from '../../components/LoaderContext/LoaderContext';
 
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+
 
 import toast from "react-hot-toast";
 
@@ -9,8 +10,8 @@ import movieService  from '../../utils/api';
 
 import List from '../../components/List/List';
 
-export default function HomePage({setLoad}) {
-
+export default function HomePage() {
+   const { setLoad } = useLoader();
   const [trending, setTrending] = useState([]);
 
   async function fetch() {

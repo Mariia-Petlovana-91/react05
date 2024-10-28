@@ -1,19 +1,23 @@
 import css from '../GoBack/GoBack.module.css';
 import { IoIosArrowRoundBack } from "react-icons/io";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-export default function GoBack({onBack}) {
+export default function GoBack({ address }) {
+	const navigate = useNavigate();
+
+	function goBack () {
+		return navigate(address || "/");
+	}
 	return (
 		<div>
-			<button onClick={onBack} type='button'
+			<button type='button'
+				onClick={goBack}
 				className={css.btnBack}
 			>
-			<Link to="/" className={css.backLink}>
 				<IoIosArrowRoundBack size={24}
 					className={css.backIcon}
 			      />
 				Go back
-			</Link>
 			</button>
 		</div>
 	)

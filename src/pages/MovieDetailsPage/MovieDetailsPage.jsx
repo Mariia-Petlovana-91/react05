@@ -1,58 +1,114 @@
 import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
-import { Link, useParams, Outlet } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import defaultImage from "../../img/dafaultImg.png";
+import { useLoader } from '../../components/LoaderContext/LoaderContext';
+import movieService from '../../utils/api';
+
+import { Link, useParams, Outlet, useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 import toast from "react-hot-toast";
+import { GiClick } from "react-icons/gi";
 
-import movieService  from '../../utils/api';
 import GoBack from '../../components/GoBack/GoBack';
+import NotFound from '../../components/NotFound/NotFound';
 
 export default function MovieDetailsPage() {
-	
-	const elId = useParams();
-	// const [element, setElement] = useState();
+    const { setLoad } = useLoader();
+    const elementId = useParams(null);
+    const [moviElement, setMoviElement] = useState(null);
+    const location = useLocation();
 
-      // async function fetch(id) {
-      //       try {
-            
-      //       const data = await movieService.getElementById(id);
-      //            if (data.results === 0) {
-      //             return;
-      //           }
-	// 		setElement(data.results);
-	// 		console.log(data);
-      //       } catch (error) {
-      //       toast.error(`${error.message}🚨`);
-      //       } finally {
-            
-      //       }
-	// }
-	// fetch(elId)
-	return (
-		<div className={css.detalisContainer}>
-			<GoBack />
-			<div className={css.detalisArticle}>
-				<img src="" alt="" className={css.img} />
-				<div className={css.aboutContainer}>
-					<h3 className={css.title}></h3>
-					<p className={css.score}>User Score&#8201;</p>
-					<h4 className={css.overview}>Overview</h4>
-					<p className={css.overviewDescript}></p>
-					<h4 className={css.genres}>Genres</h4>
-					<p className={css.genresDescript}></p>
-				</div>
-			</div>
-			<div className={css.detalisAdditionally}>
-				<h4 className={css.titleAdditionally}>Additionally information</h4>
-				<ul className={css.listAdditionally}>
-					<li className={css.itemAdditionally}>
-						<Link to="cast" className={css.linkAdditionally}>Cast</Link>
-						<Link to="reviews" className={css.linkAdditionally}>Revievs</Link>
-					</li>
-				</ul>
-			</div>
-			<Outlet />
-		</div>
-		
-	)
+    
+    const fromPage = location.state?.from || '/movies';
+
+    async function fetch(id) {
+        try {
+            setLoad(true);
+            const data = await movieService.getElementById(id);
+            setMoviElement(data);
+            return;
+        } catch (error) {
+            toast.error(`${error.message}🚨`);
+        } finally {
+            setLoad(false);
+        }
+    }
+
+    useEffect(() => {
+        if (elementId && elementId.movieId) {
+            fetch(elementId.movieId);
+        }
+    }, [elementId]);
+
+    return (
+        moviElement ? (
+            <div className={css.detalisContainer}>
+                <GoBack address={  fromPage} />
+                <div className={css.detalisArticle}>
+                    <img
+                        src={moviElement.backdrop_path
+                            ? `https://image.tmdb.org/t/p/w500${moviElement.backdrop_path}`
+                            : defaultImage}
+                        alt={moviElement.title}
+                        className={css.img}
+                        onError={(e) => { e.target.src = defaultImage; }}
+                    />
+                    <div className={css.aboutContainer}>
+                        <div>
+                            <h3 className={css.title}>
+                                {moviElement.original_title}
+                            </h3>
+                            <p className={css.score}>
+                                User Score&#8201;{moviElement.vote_average}%
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className={css.secondaryTitle}>
+                                Overview
+                            </h4>
+                            <p className={css.text}>
+                                {moviElement.overview}
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className={css.secondaryTitle}>
+                                Genres
+                            </h4>
+                            <p className={css.text}>
+                                {moviElement.genres.map((genre) => genre.name).join(', ')}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className={css.containerAdditionally}>
+                    <h4 className={css.secondaryTitle}>Additionally information</h4>
+                    <ul className={css.listAdditionally}>
+                        <li className={css.itemAdditionally}>
+                            <Link
+                                to={`cast`}
+                                className={css.linkAdditionally}
+                                state={{  from: location}}
+                            >
+                                Cast
+                                <GiClick className={css.icon} size={24} />
+                            </Link>
+                        </li>
+                        <li className={css.itemAdditionally}>
+                            <Link
+                                to={`reviews`}
+                                className={css.linkAdditionally}
+                                state={{ from: location}}
+                            >
+                                Reviews
+                                <GiClick className={css.icon} size={24} />
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <Outlet />
+            </div>
+        ) : <NotFound/>
+    );
 }
+
+
