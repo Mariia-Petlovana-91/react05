@@ -89,6 +89,15 @@
 	fill: var(--accentColor);
 }
 
+.active {
+	color: var(--accentColor);
+}
+
+.active .icon,
+.active .icon {
+	fill: var(--accentColor);
+}
+
 @media (min-width:768px) {
 	.detalisArticle {
 	      display: flex;

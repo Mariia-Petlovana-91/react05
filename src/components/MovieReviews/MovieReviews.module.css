@@ -13,6 +13,7 @@
 	max-height: 150px;
 	overflow-y: scroll;
 	scrollbar-width: none;
+	background-color: var(--secondaryColor);
 }
 
 .text {

@@ -10,6 +10,7 @@
 	padding: 20px;
 	border: 1px solid var(--accentColor);
 	border-radius: 5px;
+	background-color: var(--secondaryColor);
 }
 
 .img {

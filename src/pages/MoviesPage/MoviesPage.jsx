@@ -1,5 +1,6 @@
 import css from '../MoviesPage/MoviesPage.module.css';
 import { useLoader } from '../../components/LoaderContext/LoaderContext';
+import movieService from '../../utils/api';
 
 import SearchBar from '../../components/SearchBar/SearchBar';
 import List from '../../components/List/List';
@@ -8,15 +9,12 @@ import { useState, useEffect } from 'react';
 import toast from "react-hot-toast";
 import { Outlet, useSearchParams } from "react-router-dom";
 
-import movieService from '../../utils/api';
-
 export default function MoviesPage() {
 
   const { setLoad } = useLoader();
   const [searchArray, setSearchArray] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
  
-
   async function fetch(searchValue) {
     try {
       setLoad(true);

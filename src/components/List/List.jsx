@@ -1,5 +1,4 @@
 import css from '../List/List.module.css';
-
 import Item from '../Item/Item';
 
 export default function List({ array}) {

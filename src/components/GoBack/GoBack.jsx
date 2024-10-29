@@ -6,7 +6,7 @@ export default function GoBack({ address }) {
 	const navigate = useNavigate();
 
 	function goBack () {
-		return navigate(address || "/");
+		 navigate(address);
 	}
 	return (
 		<div>

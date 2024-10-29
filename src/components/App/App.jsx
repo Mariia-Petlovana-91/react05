@@ -1,4 +1,3 @@
-import css from "../App/App.module.css";
 import { Toaster } from 'react-hot-toast';
 
 import { Routes, Route } from "react-router-dom";

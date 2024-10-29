@@ -1,6 +1,6 @@
 import css from '../SearchBar/SearchBar.module.css';
 import { BsSearch } from "react-icons/bs";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useState } from 'react';
 
 export default function SearchBar({ onSubmit }) {

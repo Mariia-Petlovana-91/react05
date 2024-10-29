@@ -1,21 +1,17 @@
 import css from '../Item/Item.module.css';
-
 import { Link, useLocation } from "react-router-dom";
-
 import { SiZcool } from "react-icons/si";
-
 import defaultImage from "../../img/dafaultImg.png";
 
 export default function Item({ backdrop_path, title, id }) {
 	const location = useLocation();
-	console.log(location);
 	
 	return (
 		<>
 			<Link to={`/movies/${id}`}
 				state={
 					{
-						from: location.state
+						from: location
 					}
 				}
 				className={css.link}

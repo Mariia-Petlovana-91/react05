@@ -40,10 +40,10 @@
 
 .link:hover .icon,
 .link:focus .icon{
-	fill: var(--secondaryColor);
+	fill: var(--whiteColor);
 }
 
 .link:hover .text,
 .link:focus .text {
-	color: var(--secondaryColor);
+	color: var(--whiteColor);
 }

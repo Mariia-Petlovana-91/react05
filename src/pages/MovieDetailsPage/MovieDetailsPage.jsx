@@ -3,10 +3,11 @@ import defaultImage from "../../img/dafaultImg.png";
 import { useLoader } from '../../components/LoaderContext/LoaderContext';
 import movieService from '../../utils/api';
 
-import { Link, useParams, Outlet, useLocation } from "react-router-dom";
+import { NavLink, useParams, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 
 import toast from "react-hot-toast";
+import clsx from 'clsx';
 import { GiClick } from "react-icons/gi";
 
 import GoBack from '../../components/GoBack/GoBack';
@@ -17,9 +18,11 @@ export default function MovieDetailsPage() {
     const elementId = useParams(null);
     const [moviElement, setMoviElement] = useState(null);
     const location = useLocation();
-
-    
     const fromPage = location.state?.from || '/movies';
+
+    function onActiveClass ({ isActive }) {
+    return clsx(css.linkAdditionally, isActive && css.active);
+    };
 
     async function fetch(id) {
         try {
@@ -43,7 +46,7 @@ export default function MovieDetailsPage() {
     return (
         moviElement ? (
             <div className={css.detalisContainer}>
-                <GoBack address={  fromPage} />
+                <GoBack address={ fromPage} />
                 <div className={css.detalisArticle}>
                     <img
                         src={moviElement.backdrop_path
@@ -84,24 +87,24 @@ export default function MovieDetailsPage() {
                     <h4 className={css.secondaryTitle}>Additionally information</h4>
                     <ul className={css.listAdditionally}>
                         <li className={css.itemAdditionally}>
-                            <Link
+                            <NavLink
                                 to={`cast`}
-                                className={css.linkAdditionally}
-                                state={{  from: location}}
+                                className={onActiveClass}
+                                state={{  from: fromPage}}
                             >
                                 Cast
                                 <GiClick className={css.icon} size={24} />
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className={css.itemAdditionally}>
-                            <Link
+                            <NavLink
                                 to={`reviews`}
-                                className={css.linkAdditionally}
-                                state={{ from: location}}
+                                className={onActiveClass}
+                                state={{ from: fromPage}}
                             >
                                 Reviews
                                 <GiClick className={css.icon} size={24} />
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

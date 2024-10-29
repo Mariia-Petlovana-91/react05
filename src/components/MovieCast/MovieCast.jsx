@@ -7,8 +7,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import toast from "react-hot-toast";
 
-
-
 export default function MovieCast() {
 
 	const { setLoad } = useLoader();

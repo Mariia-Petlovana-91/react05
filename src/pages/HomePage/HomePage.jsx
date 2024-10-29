@@ -1,14 +1,9 @@
 import css from '../HomePage/HomePage.module.css'; 
 import { useLoader } from '../../components/LoaderContext/LoaderContext';
-
-import { useState, useEffect } from 'react';
-
-
-import toast from "react-hot-toast";
-
-import movieService  from '../../utils/api';
-
+import movieService from '../../utils/api';
 import List from '../../components/List/List';
+import { useState, useEffect } from 'react';
+import toast from "react-hot-toast";
 
 export default function HomePage() {
    const { setLoad } = useLoader();
