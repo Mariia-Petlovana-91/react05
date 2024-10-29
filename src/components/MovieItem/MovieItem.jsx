@@ -1,9 +1,9 @@
-import css from '../Item/Item.module.css';
+import css from '../MovieItem/MovieItem.module.css';
 import { Link, useLocation } from "react-router-dom";
 import { SiZcool } from "react-icons/si";
 import defaultImage from "../../img/dafaultImg.png";
 
-export default function Item({ backdrop_path, title, id }) {
+export default function MovieItem({ backdrop_path, title, id }) {
 	const location = useLocation();
 	
 	return (

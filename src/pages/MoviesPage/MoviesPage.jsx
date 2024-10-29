@@ -3,7 +3,7 @@ import { useLoader } from '../../components/LoaderContext/LoaderContext';
 import movieService from '../../utils/api';
 
 import SearchBar from '../../components/SearchBar/SearchBar';
-import List from '../../components/List/List';
+import MovieList from '../../components/MovieList/MovieList';
 
 import { useState, useEffect } from 'react';
 import toast from "react-hot-toast";
@@ -50,7 +50,7 @@ export default function MoviesPage() {
     <div className={css.container}>
       <SearchBar onSubmit={onSearchSubmit} />
       <Outlet />
-      {searchArray && <List array={searchArray} />}
+      {searchArray && <MovieList array={searchArray} />}
     </div>
   );
 }

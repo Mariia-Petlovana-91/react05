@@ -1,7 +1,7 @@
 import css from '../HomePage/HomePage.module.css'; 
 import { useLoader } from '../../components/LoaderContext/LoaderContext';
 import movieService from '../../utils/api';
-import List from '../../components/List/List';
+import MovieList from '../../components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
 import toast from "react-hot-toast";
 
@@ -32,7 +32,7 @@ export default function HomePage() {
 	return (
 		<div className={css.container}>
 			<h2 className={css.title}>Tranding tooday</h2>
-		      <List array={trending} />
+		      <MovieList array={trending} />
 		</div>
 	)
 }

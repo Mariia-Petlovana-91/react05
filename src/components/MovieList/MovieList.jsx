@@ -1,7 +1,7 @@
-import css from '../List/List.module.css';
-import Item from '../Item/Item';
+import css from './MovieList.module.css';
+import MovieItem from '../MovieItem/MovieItem';
 
-export default function List({ array}) {
+export default function MovieList({ array}) {
 	return (
 		<ul className={css.list}>
 		{
@@ -10,7 +10,7 @@ export default function List({ array}) {
 		return <li key={ar.id}
 			className={css.item}
 			>
-			<Item backdrop_path={ar.backdrop_path}
+			<MovieItem backdrop_path={ar.backdrop_path}
 				title={ar.title}
 				id={ar.id}
 			/>
